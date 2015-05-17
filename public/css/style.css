@@ -1,0 +1,8 @@
+.hide{
+	display: none;
+}
+
+#game {
+  width: 800px;
+  height: 600px;
+}

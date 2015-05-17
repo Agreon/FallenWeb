@@ -1,0 +1,8 @@
+{"GameObjects":[
+	{ "name":"Player", "type":"Player", "attributes": { "health": 100, "dmg": 20, "speed": 5}},
+	{ "name":"Skeleton", "type":"Enemy", "attributes": { "health":20, "dmg":5  } },
+	{ "name":"Skeleton Archer", "type":"Enemy", "attributes": { "health":10, "dmg":10, "range": 20 } },
+	{ "name":"Skeleton Mage", "type":"Enemy", "attributes": { "health":5, "dmg":15 } }
+]}
+
+

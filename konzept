@@ -1,0 +1,105 @@
+Server basiertes Multiplayer-Browser-Game
+
+// Game
+Spielobjekte werden pro Frame per websocket vom Server übertragen. Spieler schicken änderungen wie angriff(id des objektes) zurück zum server der die entität updatet.
+Die Map wird auf anfrage übertragen.
+
+Client(Spieler)
+-sendet
+	- Position
+-verwaltet
+	- Input 
+Server
+sendet
+	- Position von anderen Spielern
+	- Spielobjekte 
+verwaltet
+	- Verhalten der Monster ( zu Spieler gehen usw. )
+	- Speichert Stats und Items des Spielers	
+	- Nachrichten der Spieler
+
+Arrows?
+
+// Oder
+Host verwaltet
+Spielobjekte und deren Updates
+
+Die Map wird vom Host oder dem Server erstellt....
+Stats usw. werden am Anfang vom Server übermittelt und wenn verändert wieder an den Server mitgeteilt.
+Auch Wenn items aufgehoben werden, wird das an den server übermittelt, damit keine daten verloren gehen.
+
+if master
+ for objekte
+  objekte update
+
+else
+ GetObjekte
+	for objekte
+	 obj.draw
+
+
+//Objekte
+Werden als array übertragen.
+for objekte
+if obj.type == "enemy"
+else if obj.type == "item"
+
+
+// Raum System
+Ein Spieler erstellt einen Raum und andere können beitreten => Später mehr überlegungen machen.
+
+// Website
+Mit Registrierung und übersichtspanel
+
+
+// Übertragung
+Scenemanipulierungen werden Ressourcenschonend übertragen
+
+Ein Array Mit Objekten wird übertragen. Jedes Objekt hat ein Attribut, das angibt, was sich verändert hat ( Changed Object, New, Delete) und eine ID welches Objekt es war oder halt Attribute für ein neues Objekt;
+=> Es muss getestet und gespeichert werden, was sich verändert.
+	=> Sender-Objekt dem changes zu einem array hinzugefügt werden und am ende eines loops 	versendet wird.
+
+1 = changed
+2 = new 
+3 = delete
+
+// Change
+{
+	type: 1,
+	objID: 4,
+	attributes: {
+		sprite.x = 20,
+		health = 10
+	}
+}
+
+// New
+{
+	type: 2,
+	object: obj 
+}
+
+
+// Delete
+{
+	type: 3,
+	objID: 6
+}
+
+
+// Factory 
+Factory mit Namespace der man Sagt, ich mag das und das Objekt.
+	scene.Addobject(Factory.CreateObject("Skeleton",20,20));
+Factory greift auf Object namespace zu um Objekte zu Klonen und zurück zu geben.
+	Var obj = clone(objects["Skeleton"]);
+Wird initialisert
+init()
+{
+objects = [(Objekte aus namespace, z.B. OBJECTS::Skeleton)]
+
+parse objects.jsom
+objects[obj.name} = obj;
+
+
+// Diese Objekte können hoffentlich übertragen werden...
+

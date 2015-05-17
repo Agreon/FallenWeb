@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Fallen</title>
+		<link rel="stylesheet" href="css/style.css">
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/phaser.min.js"></script>
+		<script type="text/javascript" src="socket.io/socket.io.js"></script>
+	</head>
+	<body>	
+		<div id="start">
+			<button id="hostGame" class="btn btn-lg">Host Game</button>
+			<button id="joinGame" class="btn btn-lg">Join Game</button>
+		</div>
+		<div id="hosting" class="hide">
+			You are hosting the game under id: <span id="gameID"></span>
+		</div>
+		<div id="joining" class="hide">
+			<input type="text" id="inputGameID" value="Game ID">
+			<button id="joinGameBtn" class="btn btn-lg">Join Game</button>
+		</div>
+		<div id="playing" class="hide">
+			Players: <span id="PlayerCount"></span>
+		</div>
+		
+		<div id="game" class="hide">
+		</div>
+		<script type="text/javascript" src="js/Scene.js"></script>
+		<script type="text/javascript" src="js/Factory.js"></script>
+		<script type="text/javascript" src="js/game.js"></script>
+		<script type="text/javascript" src="js/form.js"></script>
+	</body>
+</html>
